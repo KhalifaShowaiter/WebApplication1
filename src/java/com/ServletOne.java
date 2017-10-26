@@ -7,6 +7,8 @@ package com;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +47,9 @@ public class ServletOne extends HttpServlet {
             }
 
             String CT = hour + ":" + minute + ":" + second + " " + am_pm;
+            
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            LocalDate localDate = LocalDate.now();
 
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -55,6 +60,7 @@ public class ServletOne extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet ServletOne at " + request.getContextPath() + "</h1>");
             out.println("<h1> local time is: " + CT);
+            out.println("<h1> today's date is: " + localDate);
             out.println("</body>");
             out.println("</html>");
         }
